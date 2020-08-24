@@ -9,8 +9,10 @@ usage() {
   exit 1
 }
 
-APP_NAME=$2
-if [ -z "${APP_NAME}" ]; then
+APP_NAME=${APP_NAME:-mfe-poc}
+
+KSVC_NAME=$2
+if [ -z "${KSVC_NAME}" ]; then
   log-info "You must specify and app name!"
   usage
 fi
@@ -25,10 +27,11 @@ fi
 deploy() {
   log-info "nodeshift --knative=true --namespace.name=${NAMESPACE}"
   nodeshift --knative=true --namespace.name=${NAMESPACE}
+  dd-oc label ksvc/${KSVC_NAME} app.kubernetes.io/part-of=${APP_NAME}
 }
 
 undeploy() {
-    dd-oc delete service.serving.knative.dev/${APP_NAME}
+    dd-oc delete service.serving.knative.dev/${KSVC_NAME}
 }
 
 # execute
