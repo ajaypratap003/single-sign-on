@@ -27,7 +27,7 @@ fi
 deploy() {
   log-info "nodeshift --knative=true --namespace.name=${NAMESPACE}"
   nodeshift --knative=true --namespace.name=${NAMESPACE}
-  dd-oc label ksvc/${KSVC_NAME} app.kubernetes.io/part-of=${APP_NAME}
+  dd-oc label ksvc/${KSVC_NAME} app.kubernetes.io/part-of=${APP_NAME} --overwrite=true
 }
 
 undeploy() {
