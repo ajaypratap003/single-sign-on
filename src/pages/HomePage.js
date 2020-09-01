@@ -1,18 +1,30 @@
 import React from "react";
-import { Page, PageSection } from '@patternfly/react-core';
-import { Sidebar } from '../components/Sidebar';
-import TopNav from "../components/TopNav";
+import { Page, PageSection, Title, TitleSizes } from '@patternfly/react-core';
 
-const HomePage = () => (
-  <Page header={<TopNav />} sidebar={<Sidebar />} isManagedSidebar>
+const HomePage = () => {
+
+  const columns = [
+    { title: 'Header cell' },
+    'Branches',
+    { title: 'Pull requests' },
+  ];
+
+  const rows = [['one', 'two', 'three', 'four'], ['one', 'two', 'three', 'four'], ['one', 'two', 'three', 'four']];
+
+  return (
     <PageSection>
-      <h1>Home Page</h1>
-      <h2>Welcome to the future!</h2>
-      <p>
-        <em>a page being provided by Single Sign On</em>
-      </p>
+      <Title headingLevel="h3" size={TitleSizes['2xl']}>
+        Clients
+      </Title>
+      Client table goes here..
+      {/* <Table cells={columns} rows={rows}>
+        <TableHeader />
+        <TableBody />
+      </Table> */}
     </PageSection>
-  </Page>
-);
+  )
+};
+
+
 
 export default HomePage;

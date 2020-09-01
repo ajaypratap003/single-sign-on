@@ -60,7 +60,6 @@ module.exports = (env = {}, argv) => {
           threeScale: `threeScale@${threeScalePath}remoteEntry.js`,
         },
         exposes: {
-          "./TopNav": "./src/components/TopNav",
           "./routes": "./src/routes",
         },
         shared: {
