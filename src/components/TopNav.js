@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { PageHeader, Nav, NavItem, NavList } from '@patternfly/react-core';
 
 const TopNav = () => (
@@ -7,10 +7,14 @@ const TopNav = () => (
     <Nav variant="horizontal">
       <NavList>
         <NavItem>
-          <Link to="/">Single Sign On</Link>
+          <NavLink to="/" activeClassName="pf-m-current" exact>
+            Single Sign On
+          </NavLink>
         </NavItem>
         <NavItem>
-          <Link to="/about">3scale</Link>
+          <NavLink to="/about" activeClassName="pf-m-current" exact>
+            3scale
+          </NavLink>
         </NavItem>
       </NavList>
     </Nav>
