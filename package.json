@@ -21,9 +21,9 @@
     "build": "webpack --mode production",
     "clean": "rm -rf dist",
     "develop": "webpack-dev-server",
-    "serve": "serve dist -p 3001",
-    "nodeshift-deploy": "scripts/nodeshift.sh deploy sso",
-    "nodeshift-undeploy": "scripts/nodeshift.sh undeploy sso",
+    "serve": "serve dist -p 8080",
+    "nodeshift-deploy": "scripts/nodeshift.sh deploy single-sign-on",
+    "nodeshift-undeploy": "scripts/nodeshift.sh undeploy single-sign-on",
     "deploy": "node scripts/deploy"
   },
   "dependencies": {

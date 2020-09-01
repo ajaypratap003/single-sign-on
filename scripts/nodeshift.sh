@@ -10,7 +10,7 @@ usage() {
 }
 
 APP_NAME=${APP_NAME:-mfe-poc}
-NAMESPACE="mfe-poc"
+NAMESPACE=${NAMESPACE:-mfe-poc}
 
 KSVC_NAME=$2
 if [ -z "${KSVC_NAME}" ]; then

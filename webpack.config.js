@@ -2,15 +2,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack").container.ModuleFederationPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const NameSpace = 'mfe-poc'
+
 const path = require("path");
 const deps = require("./package.json").dependencies;
 module.exports = (env = {}, argv) => {
   const isProd = argv.mode === 'production';
   const publicPath = isProd
-    ? 'http://single-sign-on-zfe-poc.apps.ocp4.patternfly.org/'
+    ? ''.concat('http://single-sign-on-', NameSpace, '.apps.ocp4.patternfly.org/')
     : "http://localhost:3001/";
   const threeScalePath = isProd
-    ? 'http://three-scale-zfe-poc.apps.ocp4.patternfly.org/'
+    ? ''.concat('http://three-scale-', NameSpace, '.apps.ocp4.patternfly.org/')
     : "http://localhost:3002/";
 
   return ({
