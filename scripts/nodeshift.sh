@@ -10,7 +10,12 @@ usage() {
 }
 
 APP_NAME=${APP_NAME:-mfe-poc}
-NAMESPACE=${NAMESPACE:-mfe-poc}
+
+NAMESPACE=${NAMESPACE}
+if [ -z "${NAMESPACE}" ]; then
+  log-err "You have to set NAMESPACE environment variable"
+  exit 1
+fi
 
 KSVC_NAME=$2
 if [ -z "${KSVC_NAME}" ]; then
