@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageSidebar, Nav, NavItem, NavList } from '@patternfly/react-core';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import localRoutes from "../routes";
 
 export const Sidebar = () => (
@@ -9,7 +9,9 @@ export const Sidebar = () => (
       <NavList>
         {localRoutes.map(({ text, path }) => (
           <NavItem key={path}>
-            <Link to={path}>{text}</Link>
+            <NavLink to={path} activeClassName="pf-m-current" exact>
+              {text}
+            </NavLink>
           </NavItem>
         ))}
       </NavList>

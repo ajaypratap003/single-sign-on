@@ -1,5 +1,7 @@
 import React from "react";
-import { PageSection, Table, TableHeader, TableBody, TableVariant, Title, TitleSizes } from '@patternfly/react-core';
+import { Page, PageSection, Title, TitleSizes } from '@patternfly/react-core';
+import { Sidebar } from '../components/Sidebar';
+import TopNav from "../components/TopNav";
 
 const SSO = () => {
 
@@ -12,15 +14,17 @@ const SSO = () => {
   const rows = [['one', 'two', 'three', 'four'], ['one', 'two', 'three', 'four'], ['one', 'two', 'three', 'four']];
 
   return (
-    <PageSection>
-      <Title headingLevel="h3" size={TitleSizes['2xl']}>
-        Clients
-      </Title>
-      {/* <Table cells={columns} rows={rows}>
-        <TableHeader />
-        <TableBody />
-      </Table> */}
-    </PageSection>
+    <Page header={<TopNav />} sidebar={<Sidebar />} isManagedSidebar>
+      <PageSection>
+        <Title headingLevel="h3" size={TitleSizes['2xl']}>
+          Clients
+        </Title>
+        {/* <Table cells={columns} rows={rows}>
+          <TableHeader />
+          <TableBody />
+        </Table> */}
+      </PageSection>
+  </Page>
   )
 };
 
