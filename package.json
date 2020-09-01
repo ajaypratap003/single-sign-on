@@ -1,5 +1,5 @@
 {
-  "name": "@shared-routes2/app1",
+  "name": "single-sign-on",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
@@ -21,9 +21,9 @@
     "build": "webpack --mode production",
     "clean": "rm -rf dist",
     "develop": "webpack-dev-server",
-    "serve": "serve dist -p 3001",
-    "nodeshift-deploy": "scripts/nodeshift.sh deploy three-scale",
-    "nodeshift-undeploy": "scripts/nodeshift.sh undeploy three-scale"
+    "serve": "serve dist -p 8080",
+    "nodeshift-deploy": "scripts/nodeshift.sh deploy single-sign-on",
+    "nodeshift-undeploy": "scripts/nodeshift.sh undeploy single-sign-on"
   },
   "dependencies": {
     "@patternfly/react-core": "^4.47.0",
