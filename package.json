@@ -21,9 +21,10 @@
     "build": "webpack --mode production",
     "clean": "rm -rf dist",
     "develop": "webpack-dev-server",
-    "serve": "serve dist -p 8080",
-    "nodeshift-deploy": "scripts/nodeshift.sh deploy single-sign-on",
-    "nodeshift-undeploy": "scripts/nodeshift.sh undeploy single-sign-on"
+    "serve": "serve dist -p 3001",
+    "nodeshift-deploy": "scripts/nodeshift.sh deploy sso",
+    "nodeshift-undeploy": "scripts/nodeshift.sh undeploy sso",
+    "deploy": "node scripts/deploy"
   },
   "dependencies": {
     "@patternfly/react-core": "^4.47.0",
