@@ -7,10 +7,10 @@ const TopNav = () => (
     <Nav variant="horizontal">
       <NavList>
         <NavItem>
-          <Link to="/">App 1</Link>
+          <Link to="/">Single Sign On</Link>
         </NavItem>
         <NavItem>
-          <Link to="/about">App 2</Link>
+          <Link to="/about">3scale</Link>
         </NavItem>
       </NavList>
     </Nav>

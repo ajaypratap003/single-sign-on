@@ -9,7 +9,7 @@ module.exports = (env = {}, argv) => {
   const publicPath = isProd
     ? 'http://rhuxd-mfe-sso.s3-website.us-east-2.amazonaws.com/'
     : "http://localhost:3001/";
-  const app2Path = isProd
+  const threeScalePath = isProd
     ? 'http://rhuxd-mfe-3scale.s3-website.us-east-2.amazonaws.com/'
     : "http://localhost:3002/";
 
@@ -52,10 +52,10 @@ module.exports = (env = {}, argv) => {
     plugins: [
       new MiniCssExtractPlugin(),
       new ModuleFederationPlugin({
-        name: "app1",
+        name: "sso",
         filename: "remoteEntry.js",
         remotes: {
-          app2: `app2@${app2Path}remoteEntry.js`,
+          threeScale: `threeScale@${threeScalePath}remoteEntry.js`,
         },
         exposes: {
           "./TopNav": "./src/components/TopNav",

@@ -1,5 +1,5 @@
 {
-  "name": "@shared-routes2/app1",
+  "name": "single-sign-on",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
@@ -29,7 +29,6 @@
     "@patternfly/react-core": "^4.47.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-router-dom": "^5.1.2",
-    "serve": "11.3.2"
+    "react-router-dom": "^5.1.2"
   }
 }

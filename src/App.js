@@ -4,7 +4,7 @@ import "@patternfly/react-core/dist/styles/base.css";
 import TopNav from "./components/TopNav";
 import React from "react";
 import localRoutes from "./routes";
-import remoteRoutes from "app2/routes";
+import remoteRoutes from "threeScale/routes";
 import { Sidebar } from './components/Sidebar';
 import { Page } from '@patternfly/react-core';
 

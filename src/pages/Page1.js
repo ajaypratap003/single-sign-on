@@ -5,7 +5,7 @@ const Page1 = () => (
   <PageSection>
     <h1>Page 1</h1>
     <p>
-      <em>another page being provided by App 1</em>
+      <em>another page being provided by Single Sign On</em>
     </p>
   </PageSection>
 );
