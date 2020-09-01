@@ -7,10 +7,10 @@ const deps = require("./package.json").dependencies;
 module.exports = (env = {}, argv) => {
   const isProd = argv.mode === 'production';
   const publicPath = isProd
-    ? 'http://rhuxd-mfe-sso.s3-website.us-east-2.amazonaws.com/'
+    ? 'http://single-sign-on-zfe-poc.apps.ocp4.patternfly.org/'
     : "http://localhost:3001/";
   const threeScalePath = isProd
-    ? 'http://rhuxd-mfe-3scale.s3-website.us-east-2.amazonaws.com/'
+    ? 'http://three-scale-zfe-poc.apps.ocp4.patternfly.org/'
     : "http://localhost:3002/";
 
   return ({
