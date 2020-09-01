@@ -22,8 +22,8 @@
     "clean": "rm -rf dist",
     "develop": "webpack-dev-server",
     "serve": "serve dist -p 3001",
-    "nodeshift-deploy": "scripts/nodeshift.sh deploy three-scale",
-    "nodeshift-undeploy": "scripts/nodeshift.sh undeploy three-scale"
+    "nodeshift-deploy": "scripts/nodeshift.sh deploy sso",
+    "nodeshift-undeploy": "scripts/nodeshift.sh undeploy sso"
   },
   "dependencies": {
     "@patternfly/react-core": "^4.47.0",
