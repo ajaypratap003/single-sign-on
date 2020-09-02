@@ -1,6 +1,7 @@
 {
   "name": "single-sign-on",
   "version": "0.0.0",
+  "port": 3001,
   "private": true,
   "devDependencies": {
     "@babel/core": "7.11.4",
@@ -19,10 +20,10 @@
   },
   "scripts": {
     "start": "npm run serve",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --env.remoteSuffix=.apps.ocp4.patternfly.org",
     "clean": "rm -rf dist",
     "develop": "webpack-dev-server",
-    "serve": "serve dist -p 8080",
+    "serve": "node scripts/serve",
     "nodeshift-deploy": "scripts/nodeshift.sh deploy single-sign-on",
     "nodeshift-undeploy": "scripts/nodeshift.sh undeploy single-sign-on",
     "deploy": "node scripts/deploy"
