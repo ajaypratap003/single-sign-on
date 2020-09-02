@@ -1,29 +1,29 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack").container.ModuleFederationPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const { dependencies, port, name } = require("./package.json");
+delete dependencies.serve; // Needed for nodeshift bug
 
 // Don't include PatternFly styles twice
 const reactCSSRegex = /(react-[\w-]+\/dist|react-styles\/css)\/.*\.css$/;
 
-const NameSpace = 'mfe-poc'
-
-const path = require("path");
-const deps = require("./package.json").dependencies;
-module.exports = (env = {}, argv) => {
+module.exports = (env = { threescalePort: 3002, navPort: 3003 }, argv) => {
   const isProd = argv.mode === 'production';
-  const publicPath = isProd
-    ? ''.concat('http://single-sign-on-', NameSpace, '.apps.ocp4.patternfly.org/')
-    : "http://localhost:3001/";
-  const threeScalePath = isProd
-    ? ''.concat('http://three-scale-', NameSpace, '.apps.ocp4.patternfly.org/')
-    : "http://localhost:3002/";
+  const { remoteSuffix } = env;
+  const publicPath = (isProd && remoteSuffix)
+    ? `http://sso${remoteSuffix}/`
+    : `http://localhost:${port}/`;
+  const navigationPath = (isProd && remoteSuffix)
+    ? `http://navigation${remoteSuffix}/`
+    : `http://localhost:${env.navPort}/`;
 
   return ({
     entry: "./src/index",
     mode: "development",
     devServer: {
       contentBase: path.join(__dirname, "dist"),
-      port: 3001,
+      port
     },
     output: {
       publicPath
@@ -62,25 +62,25 @@ module.exports = (env = {}, argv) => {
     plugins: [
       new MiniCssExtractPlugin(),
       new ModuleFederationPlugin({
-        name: "sso",
+        name,
         filename: "remoteEntry.js",
         remotes: {
-          threeScale: `threeScale@${threeScalePath}remoteEntry.js`,
+          navigation: `navigation@${navigationPath}remoteEntry.js`,
         },
         exposes: {
           "./ClientSelect": "./src/components/ClientSelect",
         },
         shared: {
-          ...deps,
+          ...dependencies,
           react: {
             eager: true,
             singleton: true,
-            requiredVersion: deps.react,
+            requiredVersion: dependencies.react,
           },
           "react-dom": {
             eager: true,
             singleton: true,
-            requiredVersion: deps["react-dom"],
+            requiredVersion: dependencies["react-dom"],
           },
         },
       }),
