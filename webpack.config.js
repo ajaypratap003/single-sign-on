@@ -2,6 +2,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack").container.ModuleFederationPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+// Don't include PatternFly styles twice
+const reactCSSRegex = /(react-[\w-]+\/dist|react-styles\/css)\/.*\.css$/;
+
 const NameSpace = 'mfe-poc'
 
 const path = require("path");
@@ -41,6 +44,7 @@ module.exports = (env = {}, argv) => {
         },
         {
           test: /\.css$/,
+          exclude: reactCSSRegex,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
@@ -49,6 +53,10 @@ module.exports = (env = {}, argv) => {
             "css-loader",
           ],
         },
+        {
+          test: reactCSSRegex,
+          use: 'null-loader'
+        }
       ],
     },
     plugins: [
@@ -60,7 +68,7 @@ module.exports = (env = {}, argv) => {
           threeScale: `threeScale@${threeScalePath}remoteEntry.js`,
         },
         exposes: {
-          "./routes": "./src/routes",
+          "./ClientSelect": "./src/components/ClientSelect",
         },
         shared: {
           ...deps,

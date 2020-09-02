@@ -2,16 +2,16 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 
 import "@patternfly/react-core/dist/styles/base.css";
 import React from "react";
-import localRoutes from "./routes";
 import remoteRoutes from "threeScale/routes";
-import { Sidebar } from './components/Sidebar';
+import PageHeader from "threeScale/PageHeader";
+import Sidebar from "threeScale/Sidebar";
 import { Page, PageSection } from '@patternfly/react-core';
 
-const routes = [...localRoutes, ...remoteRoutes];
+const routes = remoteRoutes;
 
 const App = () => (
   <HashRouter>
-    <Page sidebar={<Sidebar routes={routes} />} isManagedSidebar>
+    <Page sidebar={<Sidebar routes={routes} />} header={<PageHeader />} isManagedSidebar>
       <React.Suspense fallback={<PageSection>Loading...</PageSection>}>
         <Switch>
           {routes.map(({ path, component, exact }) => (
@@ -24,7 +24,7 @@ const App = () => (
           ))}
         </Switch>
       </React.Suspense>
-      </Page>
+    </Page>
   </HashRouter>
 );
 
