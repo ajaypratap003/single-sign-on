@@ -4,7 +4,7 @@ import "@patternfly/react-core/dist/styles/base.css";
 import React from "react";
 import remoteRoutes from "threeScale/routes";
 import PageHeader from "threeScale/PageHeader";
-import { Sidebar } from './components/Sidebar';
+import Sidebar from "threeScale/Sidebar";
 import { Page, PageSection } from '@patternfly/react-core';
 
 const routes = remoteRoutes;
