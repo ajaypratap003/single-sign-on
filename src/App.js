@@ -1,8 +1,8 @@
 import { HashRouter, Route, Switch } from "react-router-dom";
 
 import React from "react";
-import routes from "threeScale/routes";
-import Page from 'threeScale/Page';
+import routes from "navigation/routes";
+import Page from 'navigation/Page';
 
 const App = () => (
   <HashRouter>
