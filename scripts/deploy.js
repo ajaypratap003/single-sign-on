@@ -1,3 +1,4 @@
+const { port } = require('../package.json');
 const nodeshift = require('nodeshift');
 
 // Deploy an Application
@@ -6,7 +7,7 @@ nodeshift.deploy({
     name: 'zfe-poc'
   },
   deploy: {
-    port: 3001
+    port
   }
 }).then((response) => {
     console.log(response);

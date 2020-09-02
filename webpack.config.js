@@ -8,14 +8,14 @@ delete dependencies.serve; // Needed for nodeshift bug
 // Don't include PatternFly styles twice
 const reactCSSRegex = /(react-[\w-]+\/dist|react-styles\/css)\/.*\.css$/;
 
-module.exports = (env = { threeScalePort: 3002, navPort: 3003 }, argv) => {
+module.exports = (env = { threescalePort: 3002, navPort: 3003 }, argv) => {
   const isProd = argv.mode === 'production';
   const { remoteSuffix } = env;
   const publicPath = (isProd && remoteSuffix)
-  ? `http://sso-${remoteSuffix}/`
-  : `http://localhost:${port}/`;
+    ? `http://sso${remoteSuffix}/`
+    : `http://localhost:${port}/`;
   const navigationPath = (isProd && remoteSuffix)
-    ? `http://navigation-${remoteSuffix}/`
+    ? `http://navigation${remoteSuffix}/`
     : `http://localhost:${env.navPort}/`;
 
   return ({
