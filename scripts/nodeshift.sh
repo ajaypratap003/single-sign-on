@@ -9,6 +9,8 @@ usage() {
   exit 1
 }
 
+NODESHIFT_CMD=`pwd`/node_modules/.bin/nodeshift
+
 APP_NAME=${APP_NAME:-mfe-poc}
 
 NAMESPACE=${NAMESPACE}
@@ -25,7 +27,7 @@ fi
 
 deploy() {
   log-info "nodeshift --knative=true --namespace.name=${NAMESPACE}"
-  nodeshift --knative=true --namespace.name=${NAMESPACE}
+  ${NODESHIFT_CMD} --knative=true --namespace.name=${NAMESPACE}
   dd-oc label ksvc/${KSVC_NAME} app.kubernetes.io/part-of=${APP_NAME} --overwrite=true
 }
 
