@@ -29,6 +29,7 @@ deploy() {
   log-info "nodeshift --knative=true --namespace.name=${NAMESPACE}"
   ${NODESHIFT_CMD} --knative=true --namespace.name=${NAMESPACE}
   dd-oc label ksvc/${KSVC_NAME} app.kubernetes.io/part-of=${APP_NAME} --overwrite=true
+  dd-oc annotate --overwrite ksvc/${KSVC_NAME} app.openshift.io/connects-to=sso-api
 }
 
 undeploy() {
