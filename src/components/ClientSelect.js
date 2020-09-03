@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {
+    Button,
+    Divider,
     Bullseye,
     ClipboardCopy,
     Grid,
@@ -35,13 +37,13 @@ export default () => {
 
     useEffect(() => {
         connectToSSO();
-    },[]);
+    }, [check3]);
   
     const options2 = [
       { value: 'Choose...', disabled: false, isPlaceholder: true },
+      { value: 'Singlespa', disabled: false },
       { value: 'Master', disabled: false },
-      { value: 'APIs', disabled: false },
-      { value: 'Singlespa', disabled: false }
+      { value: 'APIs', disabled: false }
     ];
   
     const onToggle2 = isOpen2 => {
@@ -82,7 +84,8 @@ export default () => {
       <React.Fragment>
         <div className="sso-product">
         <div className="sso-title">
-            <b>REDHAT</b> SINGLE SIGN-ON
+            <p><b>REDHAT</b> SINGLE SIGN-ON</p>
+            <p><b>Account:</b> RH-test (<a>change</a>)</p>
         </div>
         {ssoConnect &&
             <div className="sso-empty-state">
@@ -105,6 +108,12 @@ export default () => {
               isOpen={isOpen2}
               className="select-sso"
             >
+                <SelectOption key={10}>
+                    <Button isInline variant="link">
+                        Create new...
+                    </Button>
+                    <Divider/>
+                </SelectOption>
               {options2.map((option, index) => (
                 <SelectOption
                   isDisabled={option.disabled}
