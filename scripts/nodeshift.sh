@@ -11,7 +11,7 @@ usage() {
 
 NODESHIFT_CMD=`pwd`/node_modules/.bin/nodeshift
 
-APP_NAME=${APP_NAME:-mfe-poc}
+APP_NAME=${APP_NAME:-sso-app}
 
 NAMESPACE=${NAMESPACE}
 if [ -z "${NAMESPACE}" ]; then

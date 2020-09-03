@@ -84,7 +84,7 @@ export default () => {
       <React.Fragment>
         <div className="sso-product">
         <div className="sso-title">
-            <p><b>REDHAT</b> SINGLE SIGN-ON ( BETA RELEASE !!!! )</p>
+            <p><b>REDHAT</b> SINGLE SIGN-ON</p>
             <p><b>Account:</b> RH-test (<a>change</a>)</p>
         </div>
         {ssoConnect &&
