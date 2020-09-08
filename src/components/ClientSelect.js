@@ -32,7 +32,7 @@ export default () => {
     const connectToSSO = () => {
       setTimeout(() => {
         setSsoConnect(false)
-      }, 10000);
+      }, 2000);
     }
 
     useEffect(() => {
