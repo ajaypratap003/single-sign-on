@@ -7,7 +7,16 @@ const server = http.createServer((request, response) => {
   // You pass two more arguments for config and middleware
   // More details here: https://github.com/vercel/serve-handler#options
   return handler(request, response, {
-    public: path.join(__dirname, '../dist')
+    public: path.join(__dirname, '../dist'),
+    headers: [
+      {
+        source: '**/*.js',
+        headers : [{
+          key : 'Cache-Control',
+          value : "no-cache"
+        }]
+      }
+    ]
   });
 })
  
